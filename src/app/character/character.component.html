@@ -1,0 +1,36 @@
+<div>
+    <h1>Star Wars Characters</h1>
+    <input type="number" [(ngModel)]="personId" placeholder="Enter character ID" />
+    <button (click)="getPerson()">Get Character</button>
+  </div>
+  
+  <div *ngIf="personData">
+    <h2>{{ personData.name }}</h2>
+    <p><strong>Height:</strong> {{ personData.height }}</p>
+    <p><strong>Mass:</strong> {{ personData.mass }}</p>
+    <p><strong>Hair Color:</strong> {{ personData.hair_color }}</p>
+    <p><strong>Skin Color:</strong> {{ personData.skin_color }}</p>
+    <p><strong>Eye Color:</strong> {{ personData.eye_color }}</p>
+    <p><strong>Birth Year:</strong> {{ personData.birth_year }}</p>
+    <p><strong>Gender:</strong> {{ personData.gender }}</p>
+  
+    <div>
+      <strong>Homeworld:</strong>
+      <button (click)="openLink(personData.homeworld)">Visit</button>
+    </div>
+  
+    <div *ngFor="let film of personData.films">
+      <strong>Film:</strong>
+      <button (click)="openLink(film)">Visit</button>
+    </div>
+  
+    <div *ngFor="let vehicle of personData.vehicles">
+      <strong>Vehicle:</strong>
+      <button (click)="openLink(vehicle)">Visit</button>
+    </div>
+  
+    <div *ngFor="let starship of personData.starships">
+      <strong>Starship:</strong>
+      <button (click)="openLink(starship)">Visit</button>
+    </div>
+  </div>
